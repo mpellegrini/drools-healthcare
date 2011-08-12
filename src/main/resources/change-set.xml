@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change-set:change-set xmlns:change-set="http://drools.org/drools-5.0/change-set"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://drools.org/drools-5.0/change-set change-set-1.0.0.xsd ">
+	<change-set:add>
+	<change-set:resource source="classpath:bmi/bmidiseaserisk.drl" type="DRL" />
+		<change-set:resource source="classpath:bmi/bmiweightcategory.drl" type="DRL" />
+		<change-set:resource source="classpath:bmi/bodymassindex.drl" type="DRL" />
+	</change-set:add>
+</change-set:change-set>

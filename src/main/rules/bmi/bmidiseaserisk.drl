@@ -1,0 +1,164 @@
+package bmi.bmidiseaserisk
+
+import com.michaelpellegrini.brms.healthcare.fact.type.WaistCircumference;
+import com.michaelpellegrini.brms.healthcare.fact.type.BMIDiseaseRisk;
+import com.michaelpellegrini.brms.healthcare.fact.type.BMIWeightCategory;
+import com.michaelpellegrini.brms.healthcare.fact.type.Gender;import com.michaelpellegrini.brms.healthcare.fact.value.GenderConstraint;
+import com.michaelpellegrini.brms.healthcare.fact.value.BMIWeightCategoryConstraint;
+import com.michaelpellegrini.brms.healthcare.fact.value.BMIDiseaseRiskConstraint;
+import javax.measure.unit.SI;
+
+rule "IncreasedBMIDiseaseRisk-MaleLess"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OVERWEIGHT)
+		Gender(value == GenderConstraint.MALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 102))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.INCREASED);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "IncreasedBMIDiseaseRisk-FemaleLess"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OVERWEIGHT)
+		Gender(value == GenderConstraint.FEMALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 88))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.INCREASED);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "HighBMIDiseaseRisk-MaleLess"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_I)
+		Gender(value == GenderConstraint.MALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 102))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "HighBMIDiseaseRisk-FemaleLess"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_I)
+		Gender(value == GenderConstraint.FEMALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 88))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "VeryHighBMIDiseaseRisk-MaleLess"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_II)
+		Gender(value == GenderConstraint.MALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 102))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.VERY_HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "VeryHighBMIDiseaseRisk-FemaleLess"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_II)
+		Gender(value == GenderConstraint.FEMALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 88))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.VERY_HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "ExtremelyHighBMIDiseaseRisk-MaleLess"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.EXTREME_OBESITY_III)
+		Gender(value == GenderConstraint.MALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 102))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.EXTREMELY_HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "ExtremelyHighBMIDiseaseRisk-FemaleLess"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.EXTREME_OBESITY_III)
+		Gender(value == GenderConstraint.FEMALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 88))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.EXTREMELY_HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+// Second Column Rules
+rule "HighBMIDiseaseRisk-MaleMore"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OVERWEIGHT)
+		Gender(value == GenderConstraint.MALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 102))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "HighBMIDiseaseRisk-FemaleMore"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OVERWEIGHT)
+		Gender(value == GenderConstraint.FEMALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 88))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "VeryHighBMIDiseaseRisk-MaleMore"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_I || == BMIWeightCategoryConstraint.OBESITY_II)
+		Gender(value == GenderConstraint.MALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 102))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.VERY_HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "VeryHighBMIDiseaseRisk-FemaleMore"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_I || == BMIWeightCategoryConstraint.OBESITY_II)
+		Gender(value == GenderConstraint.FEMALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 88))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.VERY_HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "ExtremelyHighBMIDiseaseRisk-MaleMore"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.EXTREME_OBESITY_III)
+		Gender(value == GenderConstraint.MALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 102))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.EXTREMELY_HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end
+
+rule "ExtremelyHighBMIDiseaseRisk-FemaleMore"
+	when
+		BMIWeightCategory(value == BMIWeightCategoryConstraint.EXTREME_OBESITY_III)
+		Gender(value == GenderConstraint.FEMALE)
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 88))
+	then
+		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.EXTREMELY_HIGH);
+		insertLogical (fact);
+		System.out.println(drools.getRule().getName());	
+end

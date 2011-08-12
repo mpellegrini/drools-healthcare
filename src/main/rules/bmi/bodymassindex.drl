@@ -1,0 +1,20 @@
+package bmi.bodymassindex;
+
+dialect "mvel"
+import com.michaelpellegrini.brms.healthcare.fact.type.BodyMassIndex;
+import com.michaelpellegrini.brms.healthcare.fact.type.Height;
+import com.michaelpellegrini.brms.healthcare.fact.type.Weight;
+import javax.measure.Measurable;
+
+import function com.michaelpellegrini.brms.healthcare.DroolsHelper.calculateBMI;
+
+rule "CalculateBodyMassIndex"
+	when
+		$h: Height()
+		$w: Weight()
+	then
+		// Needed to add cast to Measurable for ReteTree to work
+		BodyMassIndex fact = new BodyMassIndex(calculateBMI(((Measurable) $h.getValue()), ((Measurable) $w.getValue())));
+		insertLogical(fact);
+		System.out.println(drools.getRule().getName() + " " + fact.getValue());
+end

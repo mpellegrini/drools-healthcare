@@ -1,0 +1,63 @@
+package bmi.bmiweightcategory;
+
+dialect "mvel"
+import com.michaelpellegrini.brms.healthcare.fact.type.BodyMassIndex;
+import com.michaelpellegrini.brms.healthcare.fact.type.BMIWeightCategory;
+import com.michaelpellegrini.brms.healthcare.fact.value.BMIWeightCategoryConstraint;
+
+// Check out this to factor in Waist Circumference
+// http://www.nhlbi.nih.gov/health/public/heart/obesity/lose_wt/bmi_dis.htm
+
+rule "Underweight"
+	when
+		BodyMassIndex(value > 0 && < 18.5)
+	then
+		BMIWeightCategory fact = new BMIWeightCategory(BMIWeightCategoryConstraint.UNDERWEIGHT);
+		insertLogical (fact);
+		System.out.println("Member is " + drools.getRule().getName());
+end
+
+rule "NormalWeight"
+	when
+		BodyMassIndex(value >= 18.5 && < 25)
+	then
+		BMIWeightCategory fact = new BMIWeightCategory(BMIWeightCategoryConstraint.NORMAL_WEIGHT);
+		insertLogical (fact);
+		System.out.println("Member is " + drools.getRule().getName());
+end
+
+rule "Overweight"
+	when
+		BodyMassIndex(value >= 25 && < 30) 	then
+		BMIWeightCategory fact = new BMIWeightCategory(BMIWeightCategoryConstraint.OVERWEIGHT);
+		insertLogical (fact);
+		System.out.println("Member is " + drools.getRule().getName());
+		
+end
+
+rule "ObesityClassI"
+	when
+		BodyMassIndex(value >= 30 && < 35)
+	then
+		BMIWeightCategory fact = new BMIWeightCategory(BMIWeightCategoryConstraint.OBESITY_I);
+		insertLogical (fact);
+		System.out.println("Member is " + drools.getRule().getName());
+end
+
+rule "ObesityClassII"
+	when
+		BodyMassIndex(value >= 35 && < 40)
+	then
+		BMIWeightCategory fact = new BMIWeightCategory(BMIWeightCategoryConstraint.OBESITY_II);
+		insertLogical (fact);
+		System.out.println("Member is " + drools.getRule().getName());
+end
+
+rule "ExtremeObesityClassIII"
+	when
+		BodyMassIndex(value >= 40)
+	then
+		BMIWeightCategory fact = new BMIWeightCategory(BMIWeightCategoryConstraint.EXTREME_OBESITY_III);
+		insertLogical (fact);
+		System.out.println("Member is " + drools.getRule().getName());
+end
