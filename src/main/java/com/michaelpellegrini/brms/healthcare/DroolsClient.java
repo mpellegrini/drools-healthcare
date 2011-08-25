@@ -50,7 +50,7 @@ public class DroolsClient {
 			 * Create the asserted facts about a member and insert them
 			 * into the knowledge session
 			 */
-			Height height = new Height(Measure.valueOf(180.0f, SI.CENTIMETER));
+			Height height = new Height(Measure.valueOf(180.0f, SI.CENTIMETRE));
 			Weight weight = new Weight(Measure.valueOf(104.0f, SI.KILOGRAM));
 			WaistCircumference waistCircumference = new WaistCircumference(Measure.valueOf(38.0f, NonSI.INCH));
 			Gender gender = new Gender(GenderConstraint.MALE);

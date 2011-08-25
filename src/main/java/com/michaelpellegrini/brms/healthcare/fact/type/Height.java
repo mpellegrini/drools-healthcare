@@ -11,7 +11,7 @@ public class Height {
 	private final Measurable<Length> value;
 	
 	public Height(Measurable<Length> value) {
-		if (value.doubleValue(SI.METER) <= 0) {
+		if (value.doubleValue(SI.METRE) <= 0) {
 			throw new IllegalArgumentException("Height must be greater than zero");
 		}
 		

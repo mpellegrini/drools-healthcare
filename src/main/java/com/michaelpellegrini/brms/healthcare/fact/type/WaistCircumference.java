@@ -11,7 +11,7 @@ public class WaistCircumference {
 	private final Measurable<Length> value;
 	
 	public WaistCircumference(Measurable<Length> value) {
-		if (value.doubleValue(SI.CENTIMETER) <= 0) {
+		if (value.doubleValue(SI.CENTIMETRE) <= 0) {
 			throw new IllegalArgumentException("Height must be greater than zero");
 		}
 		

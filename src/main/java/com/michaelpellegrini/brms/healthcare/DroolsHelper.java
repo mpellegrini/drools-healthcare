@@ -14,7 +14,7 @@ public class DroolsHelper {
 		** Metric BMI Formula
 		** BMI = ( Weight in Kilograms / ( Height in Meters ) x ( Height in Meters ) )
 		*/
-		double bmi = weight.doubleValue(SI.KILOGRAM) / (height.doubleValue(SI.METER) * height.doubleValue(SI.METER));
+		double bmi = weight.doubleValue(SI.KILOGRAM) / (height.doubleValue(SI.METRE) * height.doubleValue(SI.METRE));
 
 		// Rounding double 
 		float p = (float) Math.pow(10, 1);
