@@ -45,7 +45,6 @@
 			<groupId>org.drools</groupId>
 			<artifactId>drools-compiler</artifactId>
 			<version>${org.drools.version}</version>
-			<type>java-source</type>
 		</dependency>
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
