@@ -12,7 +12,7 @@ rule "IncreasedBMIDiseaseRisk-MaleLess"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OVERWEIGHT)
 		Gender(value == GenderConstraint.MALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 102))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) <= 102))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.INCREASED);
 		insertLogical (fact);
@@ -23,7 +23,7 @@ rule "IncreasedBMIDiseaseRisk-FemaleLess"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OVERWEIGHT)
 		Gender(value == GenderConstraint.FEMALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 88))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) <= 88))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.INCREASED);
 		insertLogical (fact);
@@ -34,7 +34,7 @@ rule "HighBMIDiseaseRisk-MaleLess"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_I)
 		Gender(value == GenderConstraint.MALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 102))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) <= 102))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.HIGH);
 		insertLogical (fact);
@@ -45,7 +45,7 @@ rule "HighBMIDiseaseRisk-FemaleLess"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_I)
 		Gender(value == GenderConstraint.FEMALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 88))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) <= 88))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.HIGH);
 		insertLogical (fact);
@@ -56,7 +56,7 @@ rule "VeryHighBMIDiseaseRisk-MaleLess"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_II)
 		Gender(value == GenderConstraint.MALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 102))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) <= 102))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.VERY_HIGH);
 		insertLogical (fact);
@@ -67,7 +67,7 @@ rule "VeryHighBMIDiseaseRisk-FemaleLess"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_II)
 		Gender(value == GenderConstraint.FEMALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 88))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) <= 88))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.VERY_HIGH);
 		insertLogical (fact);
@@ -78,7 +78,7 @@ rule "ExtremelyHighBMIDiseaseRisk-MaleLess"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.EXTREME_OBESITY_III)
 		Gender(value == GenderConstraint.MALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 102))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) <= 102))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.EXTREMELY_HIGH);
 		insertLogical (fact);
@@ -89,7 +89,7 @@ rule "ExtremelyHighBMIDiseaseRisk-FemaleLess"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.EXTREME_OBESITY_III)
 		Gender(value == GenderConstraint.FEMALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) <= 88))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) <= 88))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.EXTREMELY_HIGH);
 		insertLogical (fact);
@@ -101,7 +101,7 @@ rule "HighBMIDiseaseRisk-MaleMore"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OVERWEIGHT)
 		Gender(value == GenderConstraint.MALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 102))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) > 102))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.HIGH);
 		insertLogical (fact);
@@ -112,7 +112,7 @@ rule "HighBMIDiseaseRisk-FemaleMore"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OVERWEIGHT)
 		Gender(value == GenderConstraint.FEMALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 88))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) > 88))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.HIGH);
 		insertLogical (fact);
@@ -123,7 +123,7 @@ rule "VeryHighBMIDiseaseRisk-MaleMore"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_I || == BMIWeightCategoryConstraint.OBESITY_II)
 		Gender(value == GenderConstraint.MALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 102))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) > 102))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.VERY_HIGH);
 		insertLogical (fact);
@@ -134,7 +134,7 @@ rule "VeryHighBMIDiseaseRisk-FemaleMore"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.OBESITY_I || == BMIWeightCategoryConstraint.OBESITY_II)
 		Gender(value == GenderConstraint.FEMALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 88))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) > 88))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.VERY_HIGH);
 		insertLogical (fact);
@@ -145,7 +145,7 @@ rule "ExtremelyHighBMIDiseaseRisk-MaleMore"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.EXTREME_OBESITY_III)
 		Gender(value == GenderConstraint.MALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 102))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) > 102))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.EXTREMELY_HIGH);
 		insertLogical (fact);
@@ -156,7 +156,7 @@ rule "ExtremelyHighBMIDiseaseRisk-FemaleMore"
 	when
 		BMIWeightCategory(value == BMIWeightCategoryConstraint.EXTREME_OBESITY_III)
 		Gender(value == GenderConstraint.FEMALE)
-		WaistCircumference(eval(value.doubleValue(SI.CENTIMETER) > 88))
+		WaistCircumference(eval(value.doubleValue(SI.CENTIMETRE) > 88))
 	then
 		BMIDiseaseRisk fact = new BMIDiseaseRisk(BMIDiseaseRiskConstraint.EXTREMELY_HIGH);
 		insertLogical (fact);
