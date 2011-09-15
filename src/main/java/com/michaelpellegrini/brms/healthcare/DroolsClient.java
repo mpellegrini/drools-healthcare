@@ -14,6 +14,7 @@ import org.drools.builder.KnowledgeBuilderError;
 import org.drools.builder.KnowledgeBuilderErrors;
 import org.drools.builder.KnowledgeBuilderFactory;
 import org.drools.builder.ResourceType;
+import org.drools.conf.MBeansOption;
 import org.drools.conf.SequentialOption;
 import org.drools.definition.KnowledgePackage;
 import org.drools.definition.rule.Rule;
@@ -63,9 +64,9 @@ public class DroolsClient {
 			/*
 			 * Perform rule evaluation
 			 */
-			printFacts("Before fireAllRules", ksession);
+			printFacts("Before first fireAllRules", ksession);
 			ksession.fireAllRules();
-			printFacts("After First fireAllRules", ksession);
+			printFacts("After first fireAllRules", ksession);
 			
 			
 			/*
@@ -77,14 +78,14 @@ public class DroolsClient {
 			Height modHeight = new Height(Measure.valueOf(76.0f, NonSI.INCH));
 			ksession.update(fh, modHeight); 
 			ksession.fireAllRules();
-			printFacts("After Second fireAllRules", ksession);
+			printFacts("After second fireAllRules (Updated Height fact)", ksession);
 			
 			/*
 			 * Now retract the asserted fact Height and perform another
 			 * rule evaluation
 			 */
 			ksession.retract(fh);
-			printFacts("After Retraction of Height fact", ksession);
+			printFacts("After third fireAllRules (Retraction of Height fact)", ksession);
 			
 		} finally {
 			if (logger != null) {
@@ -122,7 +123,8 @@ public class DroolsClient {
 		}
 		KnowledgeBaseConfiguration kbaseConfig = KnowledgeBaseFactory.newKnowledgeBaseConfiguration();
 		kbaseConfig.setOption(SequentialOption.NO);
-		KnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase(kbaseConfig);
+		//kbaseConfig.setOption(MBeansOption.DISABLED);
+		KnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase("brms-healthcare", kbaseConfig);
 		kbase.addKnowledgePackages(kbuilder.getKnowledgePackages());
 		
 
