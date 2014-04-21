@@ -1,28 +1,44 @@
-# use glob syntax.
-syntax: glob
-*.ser
+# Maven
+target/
+
+# Java
 *.class
-*~
-*.bak
-*.off
-*.old
+*.jar
+*.war
+*.ear
+
+#IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# OSX
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+# Thumbnails
+._*
+.Spotlight-V100
+.Trashes
 
-# eclipse conf file
-.settings
-.classpath
+# Eclipse 
+*.pydevproject
 .project
-.manager
-.externalToolBuilders
-
-# building
-target
-null
-tmp*
-dist
-test-output
-
-# other scm
-.svn
-.CVS
-.hg*
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.cproject
+.buildpath

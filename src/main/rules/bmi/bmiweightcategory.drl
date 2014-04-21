@@ -1,9 +1,10 @@
 package bmi.bmiweightcategory;
 
 dialect "mvel"
-import com.michaelpellegrini.brms.healthcare.fact.type.BodyMassIndex;
-import com.michaelpellegrini.brms.healthcare.fact.type.BMIWeightCategory;
-import com.michaelpellegrini.brms.healthcare.fact.value.BMIWeightCategoryConstraint;
+
+import com.michaelpellegrini.drools.healthcare.fact.type.BodyMassIndex;
+import com.michaelpellegrini.drools.healthcare.fact.type.BMIWeightCategory;
+import com.michaelpellegrini.drools.healthcare.fact.value.BMIWeightCategoryConstraint;
 
 // Check out this to factor in Waist Circumference
 // http://www.nhlbi.nih.gov/health/public/heart/obesity/lose_wt/bmi_dis.htm
@@ -28,7 +29,8 @@ end
 
 rule "Overweight"
 	when
-		BodyMassIndex(value >= 25 && < 30) 	then
+		BodyMassIndex(value >= 25 && < 30) 
+	then
 		BMIWeightCategory fact = new BMIWeightCategory(BMIWeightCategoryConstraint.OVERWEIGHT);
 		insertLogical (fact);
 		System.out.println("Member is " + drools.getRule().getName());

@@ -1,4 +1,4 @@
-package com.michaelpellegrini.brms.healthcare.fact.value;
+package com.michaelpellegrini.drools.healthcare.fact.value;
 
 public enum GenderConstraint {
 	MALE, 

@@ -1,4 +1,4 @@
-package com.michaelpellegrini.brms.healthcare;
+package com.michaelpellegrini.drools.healthcare;
 
 import javax.measure.Measurable;
 import javax.measure.quantity.Length;

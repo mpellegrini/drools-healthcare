@@ -1,10 +1,11 @@
-package com.michaelpellegrini.brms.healthcare.fact.type;
+package com.michaelpellegrini.drools.healthcare.fact.type;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.measure.Measurable;
 import javax.measure.quantity.Length;
 import javax.measure.unit.SI;
-
-import org.apache.commons.lang.builder.ToStringBuilder;
+import java.util.Objects;
 
 public class Height {
 
@@ -26,6 +27,21 @@ public class Height {
 	public String toString() {
 		return new ToStringBuilder(this).append("value", value).toString();
 	}
-	
-	
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (obj == null || this.getClass() != obj.getClass()) return false;
+
+        final Height that = (Height) obj;
+
+        return Objects.equals(this.value, that.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this.value);
+    }
 }

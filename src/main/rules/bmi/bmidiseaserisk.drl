@@ -1,11 +1,12 @@
 package bmi.bmidiseaserisk
 
-import com.michaelpellegrini.brms.healthcare.fact.type.WaistCircumference;
-import com.michaelpellegrini.brms.healthcare.fact.type.BMIDiseaseRisk;
-import com.michaelpellegrini.brms.healthcare.fact.type.BMIWeightCategory;
-import com.michaelpellegrini.brms.healthcare.fact.type.Gender;import com.michaelpellegrini.brms.healthcare.fact.value.GenderConstraint;
-import com.michaelpellegrini.brms.healthcare.fact.value.BMIWeightCategoryConstraint;
-import com.michaelpellegrini.brms.healthcare.fact.value.BMIDiseaseRiskConstraint;
+import com.michaelpellegrini.drools.healthcare.fact.type.WaistCircumference;
+import com.michaelpellegrini.drools.healthcare.fact.type.BMIDiseaseRisk;
+import com.michaelpellegrini.drools.healthcare.fact.type.BMIWeightCategory;
+import com.michaelpellegrini.drools.healthcare.fact.type.Gender;
+import com.michaelpellegrini.drools.healthcare.fact.value.GenderConstraint;
+import com.michaelpellegrini.drools.healthcare.fact.value.BMIWeightCategoryConstraint;
+import com.michaelpellegrini.drools.healthcare.fact.value.BMIDiseaseRiskConstraint;
 import javax.measure.unit.SI;
 
 rule "IncreasedBMIDiseaseRisk-MaleLess"

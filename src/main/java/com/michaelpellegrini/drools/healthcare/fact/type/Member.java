@@ -1,8 +1,7 @@
-package com.michaelpellegrini.brms.healthcare.fact.type;
+package com.michaelpellegrini.drools.healthcare.fact.type;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-
-import com.michaelpellegrini.brms.healthcare.fact.value.GenderConstraint;
+import com.michaelpellegrini.drools.healthcare.fact.value.GenderConstraint;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 
 public class Member {

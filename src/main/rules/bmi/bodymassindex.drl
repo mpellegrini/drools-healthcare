@@ -1,12 +1,13 @@
 package bmi.bodymassindex;
 
 dialect "mvel"
-import com.michaelpellegrini.brms.healthcare.fact.type.BodyMassIndex;
-import com.michaelpellegrini.brms.healthcare.fact.type.Height;
-import com.michaelpellegrini.brms.healthcare.fact.type.Weight;
+
+import com.michaelpellegrini.drools.healthcare.fact.type.BodyMassIndex;
+import com.michaelpellegrini.drools.healthcare.fact.type.Height;
+import com.michaelpellegrini.drools.healthcare.fact.type.Weight;
 import javax.measure.Measurable;
 
-import function com.michaelpellegrini.brms.healthcare.DroolsHelper.calculateBMI;
+import function com.michaelpellegrini.drools.healthcare.DroolsHelper.calculateBMI;
 
 rule "CalculateBodyMassIndex"
 	when
