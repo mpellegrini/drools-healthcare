@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
-    <kbase name="drools-healthcare" default="true" packages="bmi, bmi.diseaserisk, bmi.weightcategory" eventProcessingMode="cloud">
+    <kbase name="drools-healthcare" default="true" packages="bmi" eventProcessingMode="cloud">
         <ksession name="stateful-session" default="true" type="stateful">
             <fileLogger file="drools-healthcare" threaded="true" />
             <!--
