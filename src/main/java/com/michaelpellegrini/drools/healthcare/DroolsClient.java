@@ -32,7 +32,7 @@ public class DroolsClient {
             KieServices kieServices = KieServices.Factory.get();
             KieContainer kcontainer = kieServices.getKieClasspathContainer();
 
-            KieBase kbase = kcontainer.getKieBase("brms-healthcare");
+            KieBase kbase = kcontainer.getKieBase("drools-healthcare");
 
             ksession = kcontainer.newKieSession("stateful-session");
 
