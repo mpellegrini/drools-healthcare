@@ -1,4 +1,4 @@
-package bmi.bmidiseaserisk
+package bmi.diseaserisk;
 
 import com.michaelpellegrini.drools.healthcare.fact.type.WaistCircumference;
 import com.michaelpellegrini.drools.healthcare.fact.type.BMIDiseaseRisk;

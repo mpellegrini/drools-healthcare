@@ -1,4 +1,4 @@
-package bmi.bodymassindex;
+package bmi;
 
 dialect "mvel"
 

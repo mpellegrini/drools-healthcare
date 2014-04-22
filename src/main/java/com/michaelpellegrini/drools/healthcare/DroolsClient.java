@@ -5,10 +5,10 @@ import com.michaelpellegrini.drools.healthcare.fact.type.Height;
 import com.michaelpellegrini.drools.healthcare.fact.type.WaistCircumference;
 import com.michaelpellegrini.drools.healthcare.fact.type.Weight;
 import com.michaelpellegrini.drools.healthcare.fact.value.GenderConstraint;
+import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.definition.KiePackage;
 import org.kie.api.definition.rule.Rule;
-import org.kie.api.logger.KieRuntimeLogger;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
@@ -29,11 +29,14 @@ public class DroolsClient {
 
         try {
             // load up the knowledge base
-            KieServices kServices = KieServices.Factory.get();
-            KieContainer kContainer = kServices.getKieClasspathContainer();
-            ksession = kContainer.newKieSession("ksession");
-            printRules(kContainer);
+            KieServices kieServices = KieServices.Factory.get();
+            KieContainer kcontainer = kieServices.getKieClasspathContainer();
 
+            KieBase kbase = kcontainer.getKieBase("brms-healthcare");
+
+            ksession = kcontainer.newKieSession("stateful-session");
+
+            printRules(kbase);
 
 			/*
              * Create the asserted facts about a member and insert them
@@ -55,8 +58,7 @@ public class DroolsClient {
             printFacts("Before first fireAllRules", ksession);
             ksession.fireAllRules();
             printFacts("After first fireAllRules", ksession);
-			
-			
+
 			/*
 			 * Update the asserted fact Height to a different measurement
 			 * and let the knowledge session know about it via an update
@@ -93,9 +95,9 @@ public class DroolsClient {
         System.out.println();
     }
 
-    private static void printRules(KieContainer container) {
+    private static void printRules(KieBase kieBase) {
         // Prints out KnowledgeBase contents
-        Collection<KiePackage> pkgs = container.getKieBase().getKiePackages();;
+        Collection<KiePackage> pkgs = kieBase.getKiePackages();;
         for (KiePackage pkg : pkgs) {
             System.err.println("* " + pkg.getName());
 

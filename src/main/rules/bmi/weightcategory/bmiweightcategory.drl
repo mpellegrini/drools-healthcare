@@ -1,4 +1,4 @@
-package bmi.bmiweightcategory;
+package bmi.weightcategory;
 
 dialect "mvel"
 

@@ -15,6 +15,7 @@
 		<project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
+		<version.org.drools>6.0.1.Final</version.org.drools>
 	</properties>
 
     <dependencyManagement>
@@ -23,7 +24,7 @@
                 <groupId>org.drools</groupId>
                 <artifactId>drools-bom</artifactId>
                 <type>pom</type>
-                <version>6.0.1.Final</version>
+                <version>${version.org.drools}</version>
                 <scope>import</scope>
             </dependency>
         </dependencies>
@@ -33,7 +34,7 @@
         <dependency>
             <groupId>javax.measure</groupId>
             <artifactId>jsr-275</artifactId>
-            <version>1.0.0</version>
+            <version>0.9.4</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -67,6 +68,15 @@
 			</resource>
 		</resources>
 		<plugins>
+            <plugin>
+                <groupId>org.kie</groupId>
+                <artifactId>kie-maven-plugin</artifactId>
+                <version>${version.org.drools}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <sourceFolder>src/main/rules</sourceFolder>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
