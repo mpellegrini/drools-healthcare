@@ -16,21 +16,34 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<version.org.drools>6.0.1.Final</version.org.drools>
+        <version.org.slf4j>1.7.7</version.org.slf4j>
 	</properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- import dependencies -->
+
             <dependency>
                 <groupId>org.drools</groupId>
                 <artifactId>drools-bom</artifactId>
-                <type>pom</type>
                 <version>${version.org.drools}</version>
                 <scope>import</scope>
+                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
 	<dependencies>
+
+        <!-- compile dependencies -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.org.slf4j}</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>javax.measure</groupId>
             <artifactId>jsr-275</artifactId>
@@ -47,12 +60,36 @@
             <groupId>org.kie</groupId>
             <artifactId>kie-api</artifactId>
             <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <!-- runtime dependencies -->
+
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-compiler</artifactId>
             <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${version.org.slf4j}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- test dependencies -->
+
 	</dependencies>
 
 	<build>
