@@ -75,6 +75,7 @@ public class DroolsClient {
 			 * rule evaluation
 			 */
             ksession.delete(fh);
+            ksession.fireAllRules();
             printFacts("After third fireAllRules (Deletion of Height fact)", ksession);
 
         } finally {
