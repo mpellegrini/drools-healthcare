@@ -1,10 +1,8 @@
 package com.michaelpellegrini.drools.healthcare.fact.type;
 
 import com.michaelpellegrini.drools.healthcare.fact.value.GenderConstraint;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.Objects;
-
 
 public class Gender {
 	
@@ -18,11 +16,15 @@ public class Gender {
 		return value;
 	}
 
-	@Override
-	public String toString() {
-		return new ToStringBuilder(this).append("value", value).toString();
-	}
-
+    @Override
+    public String toString() {
+        return new StringBuilder(this.getClass().getSimpleName())
+                .append("@")
+                .append(Integer.toHexString(System.identityHashCode(this)))
+                .append("{")
+                .append("value=").append(value)
+                .append("}").toString();
+    }
 
     @Override
     public boolean equals(Object obj) {

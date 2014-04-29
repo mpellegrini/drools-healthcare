@@ -1,7 +1,5 @@
 package com.michaelpellegrini.drools.healthcare.fact.type;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
 import java.util.Objects;
 
 public class BloodPressureSystolic {
@@ -18,7 +16,12 @@ public class BloodPressureSystolic {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("value", value).toString();
+        return new StringBuilder(this.getClass().getSimpleName())
+                .append("@")
+                .append(Integer.toHexString(System.identityHashCode(this)))
+                .append("{")
+                .append("value=").append(value)
+                .append("}").toString();
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.michaelpellegrini.drools.healthcare.fact.type;
 
 import com.michaelpellegrini.drools.healthcare.fact.value.GenderConstraint;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 
 public class Member {
@@ -64,9 +63,16 @@ public class Member {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	@Override
-	public String toString() {
-		return new ToStringBuilder(this).append("firstName", firstName).append("lastName", lastName).toString();
-	}
+
+    @Override
+    public String toString() {
+        return new StringBuilder(this.getClass().getSimpleName())
+                .append("@")
+                .append(Integer.toHexString(System.identityHashCode(this)))
+                .append("{")
+                .append("firstName=").append(firstName)
+                .append(", ")
+                .append("lastName=").append(lastName)
+                .append("}").toString();
+    }
 }
