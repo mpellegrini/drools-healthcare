@@ -4,7 +4,7 @@
 
 ### BUILD AND RUN
 
-This demo relies on maven and java so please make sure that both are installed
+This demo relies on Maven 3.0.2 or higher and Java 7 or higher so please make sure that both are installed
 in your environment.  
 
 To build and run the demo:
