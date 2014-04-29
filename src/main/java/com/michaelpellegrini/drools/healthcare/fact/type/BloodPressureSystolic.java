@@ -2,7 +2,7 @@ package com.michaelpellegrini.drools.healthcare.fact.type;
 
 import java.util.Objects;
 
-public class BloodPressureSystolic {
+public final class BloodPressureSystolic {
 
     private final double value;
 

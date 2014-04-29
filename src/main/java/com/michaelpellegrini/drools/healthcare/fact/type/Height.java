@@ -5,7 +5,7 @@ import javax.measure.quantity.Length;
 import javax.measure.unit.SI;
 import java.util.Objects;
 
-public class Height {
+public final class Height {
 
 	private final Measurable<Length> value;
 	

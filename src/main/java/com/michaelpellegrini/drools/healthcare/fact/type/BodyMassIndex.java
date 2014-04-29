@@ -2,7 +2,7 @@ package com.michaelpellegrini.drools.healthcare.fact.type;
 
 import java.util.Objects;
 
-public class BodyMassIndex {
+public final class BodyMassIndex {
 
 	private final double value;
 	

@@ -5,7 +5,7 @@ import javax.measure.quantity.Mass;
 import javax.measure.unit.SI;
 import java.util.Objects;
 
-public class Weight {
+public final class Weight {
 
 	private Measurable<Mass> value;
 	

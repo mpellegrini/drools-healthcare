@@ -4,8 +4,7 @@ import com.michaelpellegrini.drools.healthcare.fact.value.BMIWeightCategoryConst
 
 import java.util.Objects;
 
-
-public class BMIWeightCategory {
+public final class BMIWeightCategory {
 	
 	private final BMIWeightCategoryConstraint value;
 	

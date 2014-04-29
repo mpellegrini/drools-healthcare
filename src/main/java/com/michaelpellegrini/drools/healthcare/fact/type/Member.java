@@ -2,8 +2,7 @@ package com.michaelpellegrini.drools.healthcare.fact.type;
 
 import com.michaelpellegrini.drools.healthcare.fact.value.GenderConstraint;
 
-
-public class Member {
+public final class Member {
 	
 	private String firstName;
 	private String lastName;

@@ -4,7 +4,7 @@ import com.michaelpellegrini.drools.healthcare.fact.value.GenderConstraint;
 
 import java.util.Objects;
 
-public class Gender {
+public final class Gender {
 	
 	private final GenderConstraint value;
 	

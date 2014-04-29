@@ -4,8 +4,7 @@ import com.michaelpellegrini.drools.healthcare.fact.value.BMIDiseaseRiskConstrai
 
 import java.util.Objects;
 
-
-public class BMIDiseaseRisk {
+public final class BMIDiseaseRisk {
 	
 	private final BMIDiseaseRiskConstraint value;
 	
