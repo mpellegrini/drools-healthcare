@@ -1,4 +1,4 @@
-# JBoos Drools Health Care Example
+# JBoss Drools Health Care Example
 
 ## OVERVIEW
 
